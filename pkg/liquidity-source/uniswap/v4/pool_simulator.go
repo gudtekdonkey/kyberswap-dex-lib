@@ -219,6 +219,7 @@ func (p *PoolSimulator) CalcAmountOut(param pool.CalcAmountOutParams) (swapResul
 			AmountIn:         amountIn,
 			AmountOut:        swapResult.TokenAmountOut.Amount,
 			BeforeSwapResult: beforeSwapResult,
+			PoolSwapInfo:     poolSwapInfoOf(swapResult.SwapInfo),
 		})
 		if err != nil {
 			return nil, fmt.Errorf("[AfterSwap] %w", err)
@@ -363,6 +364,7 @@ func (p *PoolSimulator) CalcAmountIn(param pool.CalcAmountInParams) (swapResult 
 			AmountIn:         swapResult.TokenAmountIn.Amount,
 			AmountOut:        amountOut,
 			BeforeSwapResult: beforeSwapResult,
+			PoolSwapInfo:     poolSwapInfoOf(swapResult.SwapInfo),
 		}); err != nil {
 			return nil, fmt.Errorf("[AfterSwap] %w", err)
 		} else if err = ValidateAfterSwapResult(afterSwapResult); err != nil {
@@ -371,6 +373,14 @@ func (p *PoolSimulator) CalcAmountIn(param pool.CalcAmountInParams) (swapResult 
 	}
 
 	return
+}
+
+// poolSwapInfoOf returns the v3 math's post-swap state from a swap result's SwapInfo, or nil.
+func poolSwapInfoOf(swapInfo any) *PoolSwapInfo {
+	if si, ok := swapInfo.(PoolSwapInfo); ok {
+		return &si
+	}
+	return nil
 }
 
 func (p *PoolSimulator) CanSwapFrom(address string) []string {

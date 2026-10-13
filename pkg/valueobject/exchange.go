@@ -344,6 +344,7 @@ const (
 	ExchangeUniswapV4Fables             = "uniswap-v4-fables"
 	ExchangeUniswapV4FairFlow           = "uniswap-v4-fairflow"
 	ExchangeUniswapV4Flaunch            = "uniswap-v4-flaunch"
+	ExchangeUniswapV4Floor              = "uniswap-v4-floor"
 	ExchangeUniswapV4GlueHook           = "uniswap-v4-gluehook"
 	ExchangeUniswapV4HyFiProp           = "uniswap-v4-hyfiprop"
 	ExchangeUniswapV4Inverse            = "uniswap-v4-inverse"

@@ -68,6 +68,9 @@ type AfterSwapParams struct {
 	// BeforeSwapResult is this quote's BeforeSwap result (nil if the hook has none), so a hook can pass
 	// quote-scoped values to AfterSwap without writing its own state.
 	BeforeSwapResult *BeforeSwapResult
+	// PoolSwapInfo is the pool's own state after the swap (price, tick, liquidity, unspent input), before
+	// any hook delta, for hooks whose afterSwap reads the post-swap price.
+	PoolSwapInfo *PoolSwapInfo
 }
 
 type FeeAmount = uniswapv3.FeeAmount

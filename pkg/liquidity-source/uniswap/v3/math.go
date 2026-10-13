@@ -66,7 +66,9 @@ func NewPool(fee FeeAmount, sqrtRatioX96 uint256.Int, liquidity uint256.Int, tic
 		return nil, ErrInvalidSqrtRatioX96
 	} else if err = GetSqrtRatioAtTick(tickCurrent+1, &sqrtP); err != nil {
 		return nil, err
-	} else if !sqrtRatioX96.Lt(&sqrtP) {
+	} else if sqrtRatioX96.Gt(&sqrtP) {
+		// The upper bound is inclusive, as in the SDK: a zeroForOne swap that ends exactly on an initialized tick T
+		// leaves the price at sqrtRatioAtTick(T) with tickCurrent = T-1.
 		return nil, ErrInvalidSqrtRatioX96
 	}
 	sqrtPrices := make([]uint256.Int, len(ticks))

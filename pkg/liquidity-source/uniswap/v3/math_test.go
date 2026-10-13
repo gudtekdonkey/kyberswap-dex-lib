@@ -146,6 +146,15 @@ func TestNewPool(t *testing.T) {
 	bad := *uint256.MustFromDecimal("1")
 	_, err = NewPool(FeeMedium, bad, liquidity, 0, ticks, 60)
 	require.ErrorIs(t, err, ErrInvalidSqrtRatioX96)
+
+	// a zeroForOne swap that stopped on tick 0 leaves the price at sqrtRatioAtTick(0) and the tick at -1
+	p, err = NewPool(FeeMedium, sqrtPrice, liquidity, -1, ticks, 60)
+	require.NoError(t, err)
+	require.Equal(t, -1, p.TickCurrent)
+	above := sqrtPrice
+	above.AddUint64(&above, 1)
+	_, err = NewPool(FeeMedium, above, liquidity, -1, ticks, 60)
+	require.ErrorIs(t, err, ErrInvalidSqrtRatioX96)
 }
 
 // ---------- GetOutputAmountV2 (exact input) ----------
