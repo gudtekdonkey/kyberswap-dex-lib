@@ -79,6 +79,7 @@ import (
 	pkg_liquiditysource_everlong_flamm "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/everlong/flamm"
 	pkg_liquiditysource_feltir "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/feltir"
 	pkg_liquiditysource_flap "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/flap"
+	pkg_liquiditysource_flooramm "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/floor-amm"
 	pkg_liquiditysource_flowstatec1 "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/flowstate-c1"
 	pkg_liquiditysource_fluid_atokenswap "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/fluid/atoken-swap"
 	pkg_liquiditysource_fluid_dexlite "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/fluid/dex-lite"
@@ -374,6 +375,7 @@ func init() {
 	_ = msgpack.RegisterConcreteType(&pkg_liquiditysource_everlong_flamm.PoolSimulator{})
 	_ = msgpack.RegisterConcreteType(&pkg_liquiditysource_feltir.PoolSimulator{})
 	_ = msgpack.RegisterConcreteType(&pkg_liquiditysource_flap.PoolSimulator{})
+	_ = msgpack.RegisterConcreteType(&pkg_liquiditysource_flooramm.PoolSimulator{})
 	_ = msgpack.RegisterConcreteType(&pkg_liquiditysource_flowstatec1.PoolSimulator{})
 	_ = msgpack.RegisterConcreteType(&pkg_liquiditysource_fluid_atokenswap.PoolSimulator{})
 	_ = msgpack.RegisterConcreteType(&pkg_liquiditysource_fluid_dexlite.PoolSimulator{})

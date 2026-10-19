@@ -85,6 +85,7 @@ import (
 	everlongflamm "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/everlong/flamm"
 	"github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/feltir"
 	"github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/flap"
+	flooramm "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/floor-amm"
 	flowstatec1 "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/flowstate-c1"
 	fluidDexLite "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/fluid/dex-lite"
 	fluidDexT1 "github.com/KyberNetwork/kyberswap-dex-lib/pkg/liquidity-source/fluid/dex-t1"
@@ -397,6 +398,7 @@ type Types struct {
 	StaderETHx                 string
 	Feltir                     string
 	Flap                       string
+	FloorAmm                   string
 	FlowstateC1                string
 	FluidVaultT1               string
 	FluidDexT1                 string
@@ -657,6 +659,7 @@ var (
 		StaderETHx:                 staderethx.DexType,
 		Feltir:                     feltir.DexType,
 		Flap:                       flap.DexType,
+		FloorAmm:                   flooramm.DexType,
 		FlowstateC1:                flowstatec1.DexType,
 		FluidVaultT1:               fluidVaultT1.DexType,
 		FluidDexT1:                 fluidDexT1.DexType,
